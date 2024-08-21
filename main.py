@@ -7,7 +7,7 @@ BASE_URL = "https://api.ranker.com/"
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def forwarding(path):
-    url = BASE_URL + str(request.url).split('/')[1]
+    url = BASE_URL + str(request.url).split('https://rankers-proxy.onrender.com/')[1]
     print(url)
     response = requests.get(url, stream=True).json()
     response = flask.jsonify(response)
